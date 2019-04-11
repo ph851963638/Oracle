@@ -1,0 +1,35 @@
+ 一、SQL 创建表空间
+ 
+create tablespace demoschool
+datafile 'D:/sql/demoschool.dbf'
+size 5m
+autoextend on
+
+--创建用户
+create user c##teacher
+identified by 123456
+default tablespace demoschool
+temporary tablespace temp
+
+--切换用户
+conn  c##teacher/123456;
+切换用户前需要为用户授权
+grant create session to c##teacher
+
+授权成功 切换用户成功
+
+--登录用户
+conn c##teacher/123456;
+
+授权系统权限
+
+--创建student表
+create table student{
+sno     number(3) primary key,
+sname   varchar2(20) not null,
+sdir   date,
+segender char(3) 
+}
+
+
+
