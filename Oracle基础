@@ -31,5 +31,21 @@ sdir   date,
 segender char(3) 
 }
 
+更改权限
+alert user c##teacher
+quota unlimited on demoschool
+
+插入数据
+insert into student
+values(1,'lily','09-01-1996','女')
+
+insert into student
+values(2,'nacy',to_date('1996-10-01','yyyy-mm-dd'),'女')
+插入空置
+insert into student(sno,sname)
+values(3,'tom')
+
+
+
 
 
