@@ -45,8 +45,15 @@ values(2,'nacy',to_date('1996-10-01','yyyy-mm-dd'),'女')
 insert into student(sno,sname)
 values(3,'tom')
 
-查询已成功创建的用户表
+
+
+--创建表空间， 赋予权限  更改用户
+--查询已成功创建的用户表
  select * from user_tablespaces;
+ --授权用户权限
+ grant create session,create table to c##testuser;
+--更改用户
+alter user c##testuser quota unlimited on testschool
 
 
 
@@ -127,11 +134,40 @@ select * from emp
 where ename=5
 
 
+--查询入职时间长度
+select sysdate-hiredate form emp
+where lower(ename)='smith'
 
 
+select *from emp
+where months _between(sysdate,hiredate)35*12;
 
 
+select * from emp
+where last_day (hiredate-2)
 
+
+--查询距离今天26个月后的时间
+add_months
+语法 add_months(待处理的时间，添加月份的数量)
+select  add_months(sysdate,26)from dual
+
+--数字函数
+每月30天计算员工的每日工资， 要求计算结果四舍五入到数字的小数点后两位
+round（数字，精度）
+
+select ename,round(sal/30,2)from emp
+
+计算每个员工已经工作了多久，要求精确到后面两位小数
+ select ename trunc(months between(sysdate,hiredate))from emp
+ 
+格式化输出——输出当前时间
+select to_chae(sysdate,'yyy-mm-dd hh24:mi:ss day')  from dual 
+
+混合函数
+select ename,(sal+nvl(comm,0)*12) from emp
+
+ 
 
 
 
