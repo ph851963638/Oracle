@@ -56,6 +56,23 @@ values(3,'tom')
 alter user c##testuser quota unlimited on testschool
 
 
+更改表内容
+update student
+set sname='lucy'
+where sno=3
+
+删除表内容
+delete student
+where sno=3
+
+drop table student;
+
+
+删除用户  
+conn system/root
+drop c##testuser
+
+
 
 
 
