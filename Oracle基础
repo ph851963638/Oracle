@@ -31,19 +31,85 @@ sdir   date,
 segender char(3) 
 }
 
-更改权限
+--更改权限
 alert user c##teacher
 quota unlimited on demoschool
 
-插入数据
+--插入数据
 insert into student
 values(1,'lily','09-01-1996','女')
 
 insert into student
 values(2,'nacy',to_date('1996-10-01','yyyy-mm-dd'),'女')
-插入空置
+--插入空置
 insert into student(sno,sname)
 values(3,'tom')
+
+
+
+
+
+--4.12获取4-6 的数据
+select *from
+(select emp *, rownum n from)
+where n>=4 and n<=6
+
+查询工资前三名的
+select *from
+(select* from emp order by sal desc)
+where rownum<4
+
+将姓名和工作连接
+select concat(ename,job) from emp
+使用-将姓名和工作连接起来
+select concat（concat(ename,'-',job)） from emp;
+select ename|| '-'||job from emp    || 字符串连接符
+
+
+将字符串 右对齐
+lpad(待处理的字符串，预留位置， '前字符')
+select lpad(ename,10,' ')from emp
+
+substr（待处理的字符串，截取的起始位置，截取的个数）
+select substr(ename,1，3) from emp;
+截取的起始下标为1，下标可以是负数；
+1-4   和 4以后的字符
+select substr(ename,1,3)||'...'substr(ename,4) from emp;
+select substr(ename,-3) from emp;
+
+定位函数
+instr(待处理的字符串，需要查找的字符，开始查找的起始位置，第n次出现)
+返回值：字母所在的位置，没有返回0
+select instr（ename,'T',1,11）from emp;返回位置
+select * from emp
+where instr(ename,'T',1,1)！=0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
