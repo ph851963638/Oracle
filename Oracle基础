@@ -167,8 +167,35 @@ select to_chae(sysdate,'yyy-mm-dd hh24:mi:ss day')  from dual
 混合函数
 select ename,(sal+nvl(comm,0)*12) from emp
 
- 
 
+
+查询30号部门的 数据
+select *from emp where depton=30;
+
+查询30号部门工资的总和
+select sum(sal) from where depton=30;
+
+
+select count(*) from emp
+where sal>=3000
+
+
+
+
+select  min(sal) *  from  emp
+where sal=(select )
+
+平均工资 最大工资
+select depton,avg(sal),max(sal) from emp group by depton
+
+
+
+select   deptno ,avg(sal),max(sal)from emp
+group by depton 
+having avg(sal)>2000
+
+ 
+聚合函数复习
 
 
 
