@@ -110,7 +110,7 @@ where lower(ename) ='allen'
 ---将用户姓名中的T替换成O显示 ---
 replace（待处理的字符串， 需要修改的字符，修改后的字符）
 将用户姓名中的T替换成'O'
-select replace(ename,'T'.'O')
+select replace(ename,'T'.'O') from student
 
  
 插入新的数据
