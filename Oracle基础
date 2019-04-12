@@ -45,6 +45,25 @@ values(2,'nacy',to_date('1996-10-01','yyyy-mm-dd'),'女')
 insert into student(sno,sname)
 values(3,'tom')
 
+查询已成功创建的用户表
+ select * from user_tablespaces;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,35 +73,62 @@ select *from
 (select emp *, rownum n from)
 where n>=4 and n<=6
 
-查询工资前三名的
+--查询工资前三名的
 select *from
 (select* from emp order by sal desc)
 where rownum<4
 
-将姓名和工作连接
+--将姓名和工作连接
 select concat(ename,job) from emp
 使用-将姓名和工作连接起来
 select concat（concat(ename,'-',job)） from emp;
 select ename|| '-'||job from emp    || 字符串连接符
 
 
-将字符串 右对齐
+--将字符串 右对齐
 lpad(待处理的字符串，预留位置， '前字符')
 select lpad(ename,10,' ')from emp
 
-substr（待处理的字符串，截取的起始位置，截取的个数）
+--substr（待处理的字符串，截取的起始位置，截取的个数）
 select substr(ename,1，3) from emp;
 截取的起始下标为1，下标可以是负数；
 1-4   和 4以后的字符
 select substr(ename,1,3)||'...'substr(ename,4) from emp;
 select substr(ename,-3) from emp;
 
-定位函数
+--定位函数
 instr(待处理的字符串，需要查找的字符，开始查找的起始位置，第n次出现)
 返回值：字母所在的位置，没有返回0
 select instr（ename,'T',1,11）from emp;返回位置
 select * from emp
 where instr(ename,'T',1,1)！=0
+
+---查找区分大小写
+select * from emp
+where lower(ename) ='allen'
+
+---将用户姓名中的T替换成O显示 ---
+replace（待处理的字符串， 需要修改的字符，修改后的字符）
+将用户姓名中的T替换成'O'
+select replace(ename,'T'.'O')
+
+ 
+插入新的数据
+insest into emp(empno,ename.sal)
+values(8000,'sunny','2000')
+
+select *from emp where ename like 's%y'
+
+
+清除空格之后的字符
+select * from emp where rittim(ename,' ')  like's%y'
+
+select * from emp
+where ename=5
+
+
+
+
 
 
 
