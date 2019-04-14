@@ -5,7 +5,7 @@ datafile 'D:/sql/demoschool.dbf'
 size 5m
 autoextend on
 
---创建用户
+--创建用户  需要先自行切换到系统管理员
 create user c##teacher
 identified by 123456
 default tablespace demoschool
@@ -71,6 +71,64 @@ drop table student;
 删除用户  
 conn system/root
 drop c##testuser
+
+
+查询所有用户
+select * from  all users;
+
+--查询当前正在使用的用户
+select  * from  user_users;
+
+
+
+赋予用户权限
+grant create session,create table to c##scott;
+
+--查询表格内dept信息
+select * from dept;
+
+
+--连接用户 
+conn c##scott/123456;
+导入sql文件
+@D:/company.sql;
+
+
+
+sql 全称：   struct query language 结构化查询语言
+ 
+ 五大类：
+ DDL：   数据定义语言:  create   alter    drop 
+ SQL:    数据查询语言： select
+ DML:    数据操作语言： insert  update    delete
+ DCL:    数据控制语言： grant   revoke
+ 
+ 
+ 
+更新emp编号为8000 的sal 3000 
+update emp
+set sal=3000
+where empno=8000
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
