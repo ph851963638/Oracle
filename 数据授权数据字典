@@ -1,0 +1,44 @@
+在用户权限中，如果a或者b被收回的话，c也会被收回
+
+--创建班级表格
+create table classes( 
+cid number(3) primary key,         设置主键
+cname varchar(2) not null unique    不唯一
+）
+
+
+--创建学生表
+create table student(
+sid number(5) primary key,
+sname  varchar(20) not null,
+stureng date default sysdate,
+sgender char(3) default '男' check(sgender in('男','女')),
+cid  number(3) references classes(cid)   设置外键
+)
+
+--添加表格元素
+alter table student add(tel number(8),addr varchar2(11))
+--x修改表格类型
+alter table student modify(tel varchar2(11))
+--删除字段
+alter table student
+drop column tel
+
+--设置不可用列
+alter table stuudent set unused (addr);
+
+--删除不可用列
+alter table student  drop unused column
+修改表名
+rename student to stu;
+drop table classes;
+
+
+
+
+
+
+
+
+
+
