@@ -36,8 +36,18 @@ alert user c##teacher
 quota unlimited on demoschool
 
 --插入数据
-insert into student
-values(1,'lily','09-01-1996','女')
+insert into teacher(tno,tname,tsex,tbirthday,prof,depart) 
+values(825,'王萍','女',to_date('1982-05-05','yyyy-mm-dd'),'助教','计算机系');
+
+--批量插入数据
+begin
+insert into teacher(tno,tname,tsex,tbirthday,prof,depart) 
+values(825,'王萍','女',to_date('1982-05-05','yyyy-mm-dd'),'助教','计算机系');
+insert into teacher(tno,tname,tsex,tbirthday,prof,depart) 
+values(831,'刘冰','女',to_date('1984-08-14','yyyy-mm-dd'),'助教','电子工程系');
+end;
+
+
 
 insert into student
 values(2,'nacy',to_date('1996-10-01','yyyy-mm-dd'),'女')
@@ -60,6 +70,13 @@ alter user c##testuser quota unlimited on testschool
 update student
 set sname='lucy'
 where sno=3
+
+
+
+
+
+
+
 
 删除表内容
 delete student
