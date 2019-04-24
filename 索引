@@ -1,0 +1,19 @@
+---1.创建表的约束
+
+create table classes(
+cid number(3) primary key,  --主键约束
+cname varchar2(50) not null unique   --非空约束和唯一约束
+)
+
+
+---2.创建表约束
+create table student(
+sid  number(5) primary key,
+sname varchar2(20) not null,
+sgender char(3) default '男' check (sgender in('男','女')),--创建check约束,default 默认设置设置在字段类型之后优先级高
+sreg date default sysdate,
+cid number(3) references classes(cid)---外键约束
+
+
+
+)
