@@ -30,7 +30,7 @@ for each row
     on userinfo
     for each row 
     begin
-    select seq_userid.nextval into :new.userid from  dual  
+    select seq_userid.nextval into :new.userid from  dual;
     end;
     
     
@@ -63,7 +63,7 @@ for each row
     v_uname userinfo.uname%type;
     v_upwd userinfo.uname%type;
     begin
-    v_uname '&用户名'
+    v_uname '&用户名';
     v_pwd '&密码';
     pro_userreg(v_uname,v_pwd);
     end;
