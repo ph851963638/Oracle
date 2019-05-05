@@ -100,6 +100,25 @@ callstmt.executeUpdate();
 callstmt.close();
 
 
+-----
+declare 
+v_uname userinfo.uname%type;
+v_upwd userinfo.upwd%type;
+v_result number(1);
+begin
+  v_uname := '&uname';
+  v_upwd :='upwd';
+  pro_userlogin(v_uname,v_upwd,v_result);
+  if v_result=1 then
+    dbms_output.put_line('登录成功!');
+    elsif v_result=0 then
+      dbms_output.put_line('用户名或者密码输入错误!');
+      else
+        dbms_output.put_line('出现多种结果，数据有误!');
+        end if;
+        end;
+
+
 
 
 
