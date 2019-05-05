@@ -79,7 +79,41 @@ for each row
   exception
     when others then
       dbms_output.put_line(SQLErrm);
-      end;
+  end;
+
+
+
+
+
+
+
+……    连接数据库
+1.将classes12  加入项目中
+2.引入相应的类
+
+
+class.forName("oracle.jdbc.driver.Oracle.")
+
+callableStatement callstmt=conn.prepareCall("{call pro_userreg(?,?)}");
+callstmt.setString(1,"rose");
+callstmt.executeUpdate();
+callstmt.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
     
