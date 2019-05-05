@@ -68,8 +68,19 @@ for each row
     pro_userreg(v_uname,v_pwd);
     end;
     
-    
-    
+    抛出异常
+    declare
+    v_uname userinfo.uname%type;
+    v_upwd  userinfo.upwd%type;
+   begin
+  v_uname :='';
+  v_upwd :='';
+  pro_userreg(v_uname,v_upwd);
+  exception
+    when others then
+      dbms_output.put_line(SQLErrm);
+      end;
+
     
     
     
