@@ -35,6 +35,11 @@ select  sno, cno from sc where sc=(select max(score)from sc)
 11、查询‘3105’号课程的平均分。
 select avg(score) from sc where cno='3105';
 12、查询Sc表中至少有5名学生选修的并以3开头的课程的平均分数。
+
+select * from sc
+where cno like '3%'
+group by cno
+ 
 select avg(score) from sc where cno=(select cno from sc group by cno having count(*)>4 and cno like'3%' );
 13、查询最低分大于70，最高分小于90的Sno列。
 select sno from sc where score>70 and score<90;
