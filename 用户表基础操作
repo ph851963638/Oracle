@@ -1,21 +1,25 @@
 
 
 
-1)	查询Student表中的所有记录的Sname、Ssex和Class列。
+1)查询Student表中的所有记录的Sname、Ssex和Class列。
 
 select sname,ssex,class from student
-2、 查询教师所有的单位即不重复的Depart列。
+
+
+2、 查询教师所有的单位即不重复的Depart列
 select distinct depart from teacher
 
 
 3、 查询Student表的所有记录。
 select * from student
+
+
 4、 查询Sc表中成绩在60到80之间的所有记录。
 select * from sc where score between 60 and 80;
 
 5、 查询Sc表中成绩为85，86或88的记录。
 
-s select *from sc where score in (85,86,88);
+   select *from sc where score in (85,86,88);
 
 
 6、 查询Student表中“95031”班或性别为“女”的同学记录。
@@ -34,6 +38,7 @@ select  sno, cno from sc where sc=(select max(score)from sc)
 
 11、查询‘3105’号课程的平均分。
 select avg(score) from sc where cno='3105';
+
 12、查询Sc表中至少有5名学生选修的并以3开头的课程的平均分数。
 
 select * from sc
@@ -83,11 +88,15 @@ select distinct cno from score where score>=85
 
 27、查询出“计算机系“教师所教课程的成绩表。
 select score   from sc where cno=(select cno from course where cname='计算机导论')
+
 28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof。
-select tname,prof from teacher where depart='计算机系'  and prof not in(select prof from teacher where depart='电子工程系') union select tname,prof from teacher where depart='电子工程系'  and prof not in(select prof from teacher where depart='计算机系')
-29、查询选修编号为“3105“课程且成绩至少高于选修编号为“3245”的同学的Cno、Sno和Score,并按Score从高到低次序排序。
-select * from score where cno='3105' and score>any(select score from sc where cno='3245')
-30、查询选修编号为“3105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree.
+select tname,prof from teacher where depart='计算机系'  
+and prof not in(select prof from teacher where depart='电子工程系') 
+union select tname,prof from teacher where depart='电子工程系' 
+and prof not in(select prof from teacher where depart='计算机系')
+
+29、查询选修编号为“3105“课程且成绩至少高于选修编号为“3245”
+
 select * from score where cno='3105' and degree>all(select score from sc where cno='3245')
 
 31、 查询所有教师和同学的name、sex和birthday.
